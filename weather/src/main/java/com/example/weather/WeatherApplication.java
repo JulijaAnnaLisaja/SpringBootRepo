@@ -10,7 +10,9 @@ import org.springframework.web.client.RestTemplate;
  *
  */
 @SpringBootApplication
+//@EnableTransactionManagement
 public class WeatherApplication {
+
 	// The first step of rest template
 
 	/**
