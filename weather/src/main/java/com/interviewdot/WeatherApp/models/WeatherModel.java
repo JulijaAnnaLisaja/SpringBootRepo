@@ -4,6 +4,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
@@ -18,6 +19,17 @@ public class WeatherModel implements Serializable {
 	private BigDecimal message;
 
 	private Integer cnt;
+
+	public WeatherModel() {
+
+	}
+
+	public WeatherModel(String cod, BigDecimal message, Integer cnt, List<WeatherMapTimeModel> list) {
+		this.cod = cod;
+		this.message = message;
+		this.cnt = cnt;
+		this.list = list;
+	}
 
 	@JacksonXmlProperty(localName = "list")
 	@JacksonXmlElementWrapper(localName = "list", useWrapping = true)

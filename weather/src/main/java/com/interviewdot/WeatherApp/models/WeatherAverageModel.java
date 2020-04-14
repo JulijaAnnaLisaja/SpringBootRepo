@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 
+
 public class WeatherAverageModel implements Serializable {
 
 	private static final long serialVersionUID = 5763148931413501367L;

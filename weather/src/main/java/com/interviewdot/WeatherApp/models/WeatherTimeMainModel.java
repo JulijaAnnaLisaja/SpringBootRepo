@@ -1,8 +1,18 @@
 package com.interviewdot.WeatherApp.models;
 
+import io.swagger.annotations.ApiModel;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 
+@ApiModel(description="Main entity of Weather class")
+@Entity
 public class WeatherTimeMainModel {
+	@Id
+	@GeneratedValue
+	private Integer id;
 
 	private BigDecimal temp;
 
@@ -19,6 +29,14 @@ public class WeatherTimeMainModel {
 	private BigDecimal humidity;
 
 	private BigDecimal temp_kf;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public BigDecimal getTemp() {
 		return temp;
