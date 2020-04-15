@@ -1,4 +1,4 @@
-package com.interviewdot.WeatherApp.models;
+package com.interviewdot.WeatherApp.models.forecast;
 
 import io.swagger.annotations.ApiModel;
 
@@ -7,27 +7,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 
-@ApiModel(description="Main entity of Weather class")
+@ApiModel(description="Main entity of Forecast Model class")
 @Entity
-public class WeatherTimeMainModel {
+public class ForecastTimeMainModel {
 	@Id
 	@GeneratedValue
 	private Integer id;
 
 	private BigDecimal temp;
-
 	private BigDecimal temp_min;
-
 	private BigDecimal temp_max;
-
 	private BigDecimal pressure;
-
 	private BigDecimal sea_level;
-
 	private BigDecimal grnd_level;
-
 	private BigDecimal humidity;
-
 	private BigDecimal temp_kf;
 
 	public Integer getId() {

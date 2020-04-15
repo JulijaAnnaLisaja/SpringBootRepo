@@ -1,16 +1,15 @@
-package com.interviewdot.WeatherApp.models;
+package com.interviewdot.WeatherApp.models.forecast;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
 @JacksonXmlRootElement(localName = "weather")
-public class WeatherModel implements Serializable {
+public class ForecastModel implements Serializable {
 
 	private static final long serialVersionUID = 1253320017739887653L;
 
@@ -20,11 +19,11 @@ public class WeatherModel implements Serializable {
 
 	private Integer cnt;
 
-	public WeatherModel() {
+	public ForecastModel() {
 
 	}
 
-	public WeatherModel(String cod, BigDecimal message, Integer cnt, List<WeatherMapTimeModel> list) {
+	public ForecastModel(String cod, BigDecimal message, Integer cnt, List<ForecastMapTimeModel> list) {
 		this.cod = cod;
 		this.message = message;
 		this.cnt = cnt;
@@ -33,7 +32,7 @@ public class WeatherModel implements Serializable {
 
 	@JacksonXmlProperty(localName = "list")
 	@JacksonXmlElementWrapper(localName = "list", useWrapping = true)
-	private List<WeatherMapTimeModel> list;
+	private List<ForecastMapTimeModel> list;
 
 	public String getCod() {
 		return cod;
@@ -59,11 +58,11 @@ public class WeatherModel implements Serializable {
 		this.cnt = cnt;
 	}
 
-	public List<WeatherMapTimeModel> getList() {
+	public List<ForecastMapTimeModel> getList() {
 		return list;
 	}
 
-	public void setList(List<WeatherMapTimeModel> list) {
+	public void setList(List<ForecastMapTimeModel> list) {
 		this.list = list;
 	}
 

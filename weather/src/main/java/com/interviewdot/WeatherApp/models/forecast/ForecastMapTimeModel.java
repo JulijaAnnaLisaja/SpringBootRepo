@@ -1,4 +1,4 @@
-package com.interviewdot.WeatherApp.models;
+package com.interviewdot.WeatherApp.models.forecast;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -6,13 +6,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDateTime;
 
-public class WeatherMapTimeModel {
+public class ForecastMapTimeModel {
 
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
 	@JsonProperty("dt_txt")
 	private LocalDateTime dt;
 
-	private WeatherTimeMainModel main;
+	private ForecastTimeMainModel main;
 
 	public LocalDateTime getDt() {
 		return dt;
@@ -22,11 +22,11 @@ public class WeatherMapTimeModel {
 		this.dt = dt;
 	}
 
-	public WeatherTimeMainModel getMain() {
+	public ForecastTimeMainModel getMain() {
 		return main;
 	}
 
-	public void setMain(WeatherTimeMainModel main) {
+	public void setMain(ForecastTimeMainModel main) {
 		this.main = main;
 	}
 

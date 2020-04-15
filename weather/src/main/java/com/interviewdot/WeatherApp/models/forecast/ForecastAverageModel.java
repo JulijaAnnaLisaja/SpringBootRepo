@@ -1,4 +1,4 @@
-package com.interviewdot.WeatherApp.models;
+package com.interviewdot.WeatherApp.models.forecast;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -9,7 +9,7 @@ import java.math.RoundingMode;
 import java.time.LocalDate;
 
 
-public class WeatherAverageModel implements Serializable {
+public class ForecastAverageModel implements Serializable {
 
 	private static final long serialVersionUID = 5763148931413501367L;
 
@@ -40,7 +40,7 @@ public class WeatherAverageModel implements Serializable {
 	@JsonIgnore
 	private Integer quantPressure;
 
-	public WeatherAverageModel() {
+	public ForecastAverageModel() {
 		this.totalDaily = BigDecimal.ZERO;
 		this.totalNightly = BigDecimal.ZERO;
 		this.totalPressure = BigDecimal.ZERO;
@@ -49,9 +49,9 @@ public class WeatherAverageModel implements Serializable {
 		this.quantPressure = 0;
 	}
 
-	public WeatherAverageModel(LocalDate date, BigDecimal daily, BigDecimal nightly, BigDecimal pressure,
-							   BigDecimal totalDaily, Integer quantDaily, BigDecimal totalNightly, Integer quantNightly,
-							   BigDecimal totalPressure, Integer quantPressure) {
+	public ForecastAverageModel(LocalDate date, BigDecimal daily, BigDecimal nightly, BigDecimal pressure,
+								BigDecimal totalDaily, Integer quantDaily, BigDecimal totalNightly, Integer quantNightly,
+								BigDecimal totalPressure, Integer quantPressure) {
 		this.date = date;
 		this.daily = daily;
 		this.nightly = nightly;
@@ -64,7 +64,7 @@ public class WeatherAverageModel implements Serializable {
 		this.quantPressure = quantPressure;
 	}
 
-	public void plusMap(WeatherMapTimeModel map) {
+	public void plusMap(ForecastMapTimeModel map) {
 		if (map.isDaily()) {
 			this.totalDaily = this.totalDaily.add(map.getMain().getTemp());
 			this.quantDaily++;
