@@ -1,19 +1,7 @@
 package com.interviewdot.WeatherApp.services;
 
-import com.alicp.jetcache.anno.Cached;
-import com.interviewdot.WeatherApp.models.forecast.ForecastAverageModel;
-import com.interviewdot.WeatherApp.models.forecast.ForecastModel;
-import com.interviewdot.WeatherApp.models.location.LocationResponseModel;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 public class LocationService {
+    /*
     private final String uri = "http://api.openweathermap.org/data/2.5/forecast";
     private final String key = "f42afabb07138b319e71a4d8d6a08809";
     private final RestTemplate restTemplate;
@@ -33,8 +21,9 @@ public class LocationService {
      *
      * @param city
      * @return url
-     */
+     *
     private String url(String city) {
         return String.format(uri.concat("?q=%s").concat("&appid=%s").concat("&units=metric"), city, key);
     }
+    */
 }

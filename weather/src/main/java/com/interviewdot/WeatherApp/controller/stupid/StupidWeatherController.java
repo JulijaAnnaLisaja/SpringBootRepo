@@ -1,0 +1,46 @@
+package com.interviewdot.WeatherApp.controller.stupid;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
+@RestController
+public class StupidWeatherController {
+    static String apiKey = "f42afabb07138b319e71a4d8d6a08809";
+    static RestTemplate restTemplate = new RestTemplate();
+    static HttpHeaders headers = new HttpHeaders();
+
+    /**
+     * Allows to get OpenWeather "/weather" from country and city
+     *
+     * @param city the city name, that allows to get weather data
+     * @param country the country, that allows to get weather data
+     * @return response
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/weather/{country}/{city}")
+    public @ResponseBody
+    Object getWeatherByCountryCity(@PathVariable String city, @PathVariable String country) {
+
+        ResponseEntity<Object> response = restTemplate.
+                getForEntity("http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + country + "&APPID="+ apiKey,
+                        Object.class);
+        return response;
+    }
+
+    /**
+     * Allows to get OpenWeather "/weather" only from country and city
+     *
+     * @param city the city name, that allows to get weather data
+     * @return response
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/weather/{city}")
+    public @ResponseBody
+    Object getWeatherByCity(@PathVariable String city) {
+
+        ResponseEntity<Object> response = restTemplate.
+                getForEntity("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID="+ apiKey,
+                        Object.class);
+        return response;
+    }
+}

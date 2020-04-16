@@ -14,11 +14,8 @@ public class ForecastModel implements Serializable {
 	private static final long serialVersionUID = 1253320017739887653L;
 
 	private String cod;
-
 	private BigDecimal message;
-
 	private Integer cnt;
-
 	public ForecastModel() {
 
 	}

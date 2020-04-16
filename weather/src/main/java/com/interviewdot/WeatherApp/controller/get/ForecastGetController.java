@@ -1,4 +1,4 @@
-package com.interviewdot.WeatherApp.controller;
+package com.interviewdot.WeatherApp.controller.get;
 
 import com.interviewdot.WeatherApp.models.forecast.ForecastTimeMainModel;
 import com.interviewdot.WeatherApp.repostories.ForecastRepository;
@@ -17,7 +17,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("weather")
-public class ForecastController {
+public class ForecastGetController {
 
     @Autowired
     private ForecastService forecastService;
@@ -37,17 +37,4 @@ public class ForecastController {
         return forecastService.forecastTemperatureAverage(city);
     }
 
-    @ApiOperation("Return a JSON object that gives the weather averages.")
-    @PostMapping(value = "/forecast", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> weatherForecastAverage(@Valid @RequestBody ForecastTimeMainModel main) {
-        ForecastTimeMainModel weatherOptional = forecastRepository.save(main);
-
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(weatherOptional.getId()).toUri();
-
-        return ResponseEntity.created(location).build();
-
-    }
 }

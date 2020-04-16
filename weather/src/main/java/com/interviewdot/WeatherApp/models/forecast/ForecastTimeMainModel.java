@@ -1,5 +1,6 @@
 package com.interviewdot.WeatherApp.models.forecast;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 
 import javax.persistence.Entity;
@@ -15,8 +16,17 @@ public class ForecastTimeMainModel {
 	private Integer id;
 
 	private BigDecimal temp;
-	private BigDecimal temp_min;
-	private BigDecimal temp_max;
+
+	/**
+	 * Ieva, please, rename all of this variable
+	 * with @JsonProperty method, so
+	 * it matches the Java camelCase standards
+	 * Thanks
+	 */
+	@JsonProperty("temp_min")
+	private BigDecimal tempMin;
+	@JsonProperty("temp_max")
+	private BigDecimal tempMax;
 	private BigDecimal pressure;
 	private BigDecimal sea_level;
 	private BigDecimal grnd_level;
@@ -39,20 +49,20 @@ public class ForecastTimeMainModel {
 		this.temp = temp;
 	}
 
-	public BigDecimal getTemp_min() {
-		return temp_min;
+	public BigDecimal getTempMin() {
+		return tempMin;
 	}
 
-	public void setTemp_min(BigDecimal temp_min) {
-		this.temp_min = temp_min;
+	public void setTempMin(BigDecimal tempMin) {
+		this.tempMin = tempMin;
 	}
 
-	public BigDecimal getTemp_max() {
-		return temp_max;
+	public BigDecimal getTempMax() {
+		return tempMax;
 	}
 
-	public void setTemp_max(BigDecimal temp_max) {
-		this.temp_max = temp_max;
+	public void setTempMax(BigDecimal tempMax) {
+		this.tempMax = tempMax;
 	}
 
 	public BigDecimal getPressure() {

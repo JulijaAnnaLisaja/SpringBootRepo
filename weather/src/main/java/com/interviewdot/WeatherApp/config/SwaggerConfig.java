@@ -1,4 +1,4 @@
-package com.interviewdot.WeatherApp;
+package com.interviewdot.WeatherApp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
