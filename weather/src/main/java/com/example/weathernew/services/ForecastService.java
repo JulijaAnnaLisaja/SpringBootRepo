@@ -32,7 +32,7 @@ public class ForecastService {
     private final String apiKey;
 
     public ForecastService(RestTemplateBuilder restTemplateBuilder,
-                          WeatherApiProperties properties) {
+                           WeatherApiProperties properties) {
         this.restTemplate = restTemplateBuilder.build();
         this.apiKey = properties.getApi().getKey();
     }

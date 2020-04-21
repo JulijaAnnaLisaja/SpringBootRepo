@@ -32,10 +32,15 @@ public class ForecastTimeMainModel {
     private BigDecimal tempMin;
     @JsonProperty("temp_max")
     private BigDecimal tempMax;
+    @JsonProperty("pressure")
     private BigDecimal pressure;
-    private BigDecimal sea_level;
-    private BigDecimal grnd_level;
+    @JsonProperty("sea_level")
+    private BigDecimal seaLevel;
+    @JsonProperty("grnd_level")
+    private BigDecimal grndLevel;
+    @JsonProperty("humidity")
     private BigDecimal humidity;
-    private BigDecimal temp_kf;
+    @JsonProperty("temp_fk")
+    private BigDecimal tempKf;
 
 }
