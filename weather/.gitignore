@@ -3,7 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
-
+weather - Copy/src/main/java/com/training/weather/
 
 
 ### STS ###
@@ -32,3 +32,4 @@ build/
 ### VS Code ###
 .vscode/
 /src/main/java/com/training/weather/
+/src/main/java/com/example/weather/
