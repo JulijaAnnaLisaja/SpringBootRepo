@@ -128,6 +128,7 @@ class WeatherAppApplicationTests {
 		entityManager.persist(wtmm);
 
 		List<ForecastTimeMainModel> wtmmL = forecast.findAll();
+		assertThat(!wtmmL.isEmpty());
 		logger.info("----- testGetAllForecast() finished successfully");
 	}
 
