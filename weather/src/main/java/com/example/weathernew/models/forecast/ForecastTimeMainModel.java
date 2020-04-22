@@ -42,5 +42,7 @@ public class ForecastTimeMainModel {
     private BigDecimal humidity;
     @JsonProperty("temp_fk")
     private BigDecimal tempKf;
+    @JsonProperty("username")
+    private String username;
 
 }
