@@ -7,12 +7,8 @@ import com.example.weathernew.models.weather.WeatherModel;
 import com.example.weathernew.services.ForecastService;
 import com.example.weathernew.services.LocationService;
 import com.example.weathernew.services.WeatherService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javassist.NotFoundException;
-import org.json.JSONObject;
-import org.json.JSONString;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -29,6 +25,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
@@ -97,9 +94,9 @@ public class ServiceTests {
         RestTemplate restTemplate = new RestTemplate();
         List<ForecastAverageModel> participantJsonList = null;
         try {
-        ResponseEntity<?> response = restTemplate.getForEntity("http://localhost:8080/weather/forecast?city=Riga1", String.class);
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.findAndRegisterModules();
+            ResponseEntity<?> response = restTemplate.getForEntity("http://localhost:8080/weather/forecast?city=Riga1", String.class);
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.findAndRegisterModules();
 
             participantJsonList = mapper.readValue((String) response.getBody(), new TypeReference<List<ForecastAverageModel>>() {
 

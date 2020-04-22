@@ -1,38 +1,26 @@
 package com.example.weathernew;
 
-import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
-//import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.example.weathernew.models.forecast.ForecastAverageModel;
 import com.example.weathernew.models.forecast.ForecastTimeMainModel;
-import org.hibernate.cfg.Environment;
-import org.json.JSONObject;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -43,16 +31,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class WeatherIntegrationTests {
     Logger logger = LoggerFactory.getLogger(WeatherIntegrationTests.class);
-    @Value( "${username}" )
+    @Value("${username}")
     private String username;
-
 
 
     @Test
     public void test1GetForecastEndpointWithOneParameter() throws IOException {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8080/weather/forecast?city=Riga", String.class);
-        assertThat (response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         logger.info("----- testGetForecastEndpointWithOneParameter() finished successfully");
     }
 
@@ -82,7 +69,7 @@ public class WeatherIntegrationTests {
     public void test3GetWeatherEndpointWithOneParameter() throws IOException {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8080/weather/now/Latvia/Riga", String.class);
-        assertThat (response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         logger.info("-----  testGetWeatherEndpointWithOneParameter() finished successfully");
     }
 
@@ -104,16 +91,16 @@ public class WeatherIntegrationTests {
 
 
         ForecastTimeMainModel w = new ForecastTimeMainModel();
-        ReflectionTestUtils.setField(w, "tempMin", ReflectionTestUtils.getField(participantJsonList.get(0),"nightly"));
-        ReflectionTestUtils.setField(w, "username",username);
+        ReflectionTestUtils.setField(w, "tempMin", ReflectionTestUtils.getField(participantJsonList.get(0), "nightly"));
+        ReflectionTestUtils.setField(w, "username", username);
 
-        assertThat (response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
 
         ResponseEntity<String> response2 = restTemplate.postForEntity("http://localhost:8080/forecast/forecast", w, String.class);
         //  ResponseEntity<String> response2 = restTemplate.postForEntity("http://localhost:8080/weather/forecast" ,String.class);
         System.out.println("------------------" + response.getStatusCode());
-        assert (response2.getStatusCode()).equals(HttpStatus.CREATED);
+        assertThat(response2.getStatusCode()).equals(HttpStatus.CREATED);
         logger.info("----- getAndSave() finished successfully");
 
 
@@ -131,7 +118,7 @@ public class WeatherIntegrationTests {
     public void test6GetWeatherNowEndpointWithOneParameter() throws IOException {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8080/weather/now/Latvia/Riga", String.class);
-        assertThat (response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         logger.info("-----  testLocationEndpointWithOneParameter() finished successfully");
     }
 
@@ -139,7 +126,7 @@ public class WeatherIntegrationTests {
     public void test7GetWeatherWeeklyEndpointWithOneParameter() throws IOException {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8080/weather/weekly/Latvia/Riga", String.class);
-        assertThat (response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         logger.info("-----  testLocationEndpointWithOneParameter() finished successfully");
     }
 
