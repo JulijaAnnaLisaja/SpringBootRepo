@@ -7,11 +7,7 @@ import com.alicp.jetcache.anno.Cached;
 import com.example.weathernew.WeatherApiProperties;
 import com.example.weathernew.models.weather.WeatherModel;
 import com.example.weathernew.models.forecast.ForecastModel;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
