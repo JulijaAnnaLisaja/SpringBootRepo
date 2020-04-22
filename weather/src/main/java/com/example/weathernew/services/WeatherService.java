@@ -28,8 +28,6 @@ public class WeatherService {
     private static final String FORECAST_URL =
             "http://api.openweathermap.org/data/2.5/forecast?q={city},{country}&APPID={key}";
 
-    private static final Logger logger = LoggerFactory.getLogger(WeatherService.class);
-
     private final RestTemplate restTemplate;
 
     private final String apiKey;
